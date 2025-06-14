@@ -1,0 +1,102 @@
+/* General Body and Theming */
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #f1f5f9; /* slate-100 */
+    color: #1e293b; /* slate-800 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dark body {
+    background-color: #0f172a; /* slate-900 */
+    color: #cbd5e1; /* slate-300 */
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #e2e8f0; } /* slate-200 */
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; } /* slate-400 */
+.dark ::-webkit-scrollbar-track { background: #1e293b; } /* slate-800 */
+.dark ::-webkit-scrollbar-thumb { background: #475569; } /* slate-600 */
+.dark ::-webkit-scrollbar-thumb:hover { background: #64748b; } /* slate-500 */
+
+/* Animations and Transitions */
+.page-content { transition: opacity 300ms ease-in-out; }
+.toast-animation { animation: slideInFadeOut 4s ease-in-out forwards; }
+@keyframes slideInFadeOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Glassmorphism Header */
+.glass-header {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(203, 213, 225, 0.5); /* slate-300 with alpha */
+}
+.dark .glass-header {
+    background-color: rgba(15, 23, 42, 0.7); /* slate-900 with alpha */
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5); /* slate-700 with alpha */
+}
+
+/* Animated Gradient Background for Hero */
+.animated-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Particles CSS */
+.particles-container { 
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    overflow: hidden; 
+    z-index: 1; 
+    pointer-events: none;
+}
+.particle {
+    position: absolute;
+    bottom: -20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: rise 10s infinite ease-in;
+}
+@keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
+}
+
+/* Scroll Fade-in Animation */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typing Cursor */
+.typing-cursor {
+    display: inline-block;
+    width: 0.15em;
+    height: 1.1em;
+    background-color: currentColor;
+    animation: blink 1s steps(1) infinite;
+    vertical-align: bottom;
+    margin-left: 0.1em;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
